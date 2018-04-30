@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+/*
+ *********************************************************************************
+ *                     Copyright (C) 2018 wystan
+ *
+ *       filename: server.js
+ *    description:
+ *        created: 2018-04-30 14:26:21
+ *         author: wystan
+ *
+ *********************************************************************************
+ */
+
+const https = require('https');
+const http = require('http');
+const fs = require('fs');
+const express = require('express');
+
+function main() {
+    let app = express();
+    let credentials = {
+        key: fs.readFileSync(__dirname + '/keys/key.pem', 'utf8'),
+        cert: fs.readFileSync(__dirname + '/keys/cert.pem', 'utf8')
+    };
+    app.use(express.static(__dirname + "/static"));
+
+    let server = https.createServer(credentials, app);
+    server.listen(8080);
+    console.log("server started on 8080");
+}
+
+main();
+/************************************* END **************************************/
