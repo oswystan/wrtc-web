@@ -6,7 +6,8 @@
     let bar_cam_on   = $("#control_bar i[id='cam_on']");
     let bar_cam_off  = $("#control_bar i[id='cam_off']");
     let bar_full_screen  = $("#control_bar i[id='full_screen']");
-    let video_main = document.getElementById("video_main");
+    let ele_main_video = document.getElementById("video_main");
+    let main_video = $("#main_video video");
 
     bar_mic_on.unbind('click').click(function(){
         hq.emit("log:info:add", "mic on");
@@ -25,17 +26,42 @@
     });
     bar_full_screen.unbind('click').click(function(){
         hq.emit("log:info:add", "full screen");
-        if(video_main.requestFullscreen){
-            video_main.requestFullscreen();
+        if(ele_main_video.requestFullscreen){
+            ele_main_video.requestFullscreen();
         }
-        else if (video_main.webkitRequestFullscreen){
-            video_main.webkitRequestFullscreen();
+        else if (ele_main_video.webkitRequestFullscreen){
+            ele_main_video.webkitRequestFullscreen();
         }
-        else if (video_main.mozRequestFullScreen){
-            video_main.mozRequestFullScreen();
+        else if (ele_main_video.mozRequestFullScreen){
+            ele_main_video.mozRequestFullScreen();
         }
-        else if (video_main.msRequestFullscreen){
-            video_main.msRequestFullscreen();
+        else if (ele_main_video.msRequestFullscreen){
+            ele_main_video.msRequestFullscreen();
         }
     });
+
+    $("#control_bar").unbind('mouseover').mouseover(function(){
+        let offset = main_video.offset();
+        offset.top = offset.top + main_video.height()-$("#control_bar").height()-8;
+        offset.left = (main_video.width() - $("#control_bar").width())/2 + offset.left;
+        $("#control_bar").offset(offset);
+        $("#control_bar").css("opacity", "0.97");
+    }).unbind('mouseout').mouseout(function(){
+        $("#control_bar").css("opacity", "0.0");
+    });
+
+    $("#main_video video").unbind('mouseover').mouseover(function(){
+        let offset = $(this).offset();
+        offset.top = offset.top + $(this).height()-$("#control_bar").height()-8;
+        offset.left = ($(this).width() - $("#control_bar").width())/2 + offset.left;
+        $("#control_bar").offset(offset);
+        $("#control_bar").css("opacity", ".4");
+    }).unbind('mouseout').mouseout(function(){
+        $("#control_bar").css("opacity", "0.0");
+    });
 })();
+
+
+
+
+
