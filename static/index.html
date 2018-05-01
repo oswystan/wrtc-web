@@ -82,7 +82,19 @@
         = log
         ====================================================================
         -->
-        <div id="log"><i class="material-icons" style="font-size: 1em">keyboard_arrow_right</i>
+        <div id="log">
+            <div style="display: flex">
+                <i class="material-icons">keyboard_arrow_right</i>
+            </div>
+            <li class="error">Connecting server ...</li>
+            <li>server connected</li>
+            <li>subscribing new stream ...</li>
+            <li>publishing new stream ...</li>
+            <li>server connected</li>
+            <li>subscribing new stream ...</li>
+            <li>publishing new stream ...</li>
+            <li>server error</li>
+            <li>Connecting server ...</li>
         </div>
 
         <div id="diag_mask"></div>
@@ -117,5 +129,8 @@
     </body>
 
     <script src="js/thirdparty/jquery.js"></script>
+    <script src="js/emitter.js"></script>
+    <script src="js/headquarter.js"></script>
     <script src="js/video.js"></script>
+    <script src="js/log.js"></script>
 </html>

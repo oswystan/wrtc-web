@@ -21,26 +21,18 @@ $("#control_bar").mouseover(function(){
     offset.top = offset.top + main_video.height()-$("#control_bar").height()-8;
     offset.left = (main_video.width() - $("#control_bar").width())/2 + offset.left;
     $("#control_bar").offset(offset);
-    $("#control_bar").css("opacity", ".9");
+    $("#control_bar").css("opacity", "0.97");
 }).mouseout(function(){
     $("#control_bar").css("opacity", "0.0");
 });
 
-$("#log i").click(function(){
-    if ($(this).html() == "keyboard_arrow_down") {
-        $(this).html("keyboard_arrow_right");
-    } else {
-        $(this).html("keyboard_arrow_down");
-    }
-});
-
-$("#subscribe_new").click(function () {
+$("#subscribe_new").unbind('click').click(function () {
     $("#diag_mask").show();
     $("#diag_add_attender").show();
     $("#diag_add_attender input[name='appid']").focus();
 });
 
-$("#diag_mask").click(function(){
+$("#diag_mask").unbind('click').click(function(){
     $("#diag_mask").hide();
     $("#diag_add_attender").hide();
 });
@@ -49,5 +41,4 @@ $("#diag_add_attender input[type='submit']").unbind('click').click(function(){
     $("#diag_mask").hide();
     $("#diag_add_attender").hide();
 });
-
 

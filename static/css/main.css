@@ -123,9 +123,27 @@ body {
     background-color: #999999;
     padding: 14px 30px;
     color: #ffffff;
+    max-height: 400px;
+    overflow-y: auto;
 }
 #log i:first-child {
     cursor: pointer;
+    display: block;
+    width: 100%;
+}
+#log li {
+    padding: 10px 10px;
+    cursor: default;
+    display: none;
+}
+#log li:nth-child(even) {
+    background-color: #777;
+}
+.error {
+    color: #800000;
+}
+.warn {
+    color: #ffff00;
 }
 
 #diag_mask {
