@@ -135,6 +135,7 @@ body {
     padding: 10px 10px;
     cursor: default;
     display: none;
+    font-family: "courier new";
 }
 #log li:nth-child(even) {
     background-color: #777;

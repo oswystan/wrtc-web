@@ -5,6 +5,7 @@ $("#thumb video").click(function(){
     let cur_video = $(this)[0];
     main_video[0].src = cur_video.src;
     cur_video.src = main_src;
+    headquarter.emit("log:info:add", "click thumb video: "+main_src);
 });
 
 $("#main_video video").mouseover(function(){
