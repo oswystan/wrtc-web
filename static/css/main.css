@@ -43,6 +43,7 @@ body {
     border-width: 1px;
     border-color: #d9d9d9;
     background-color: #ffffff;
+    border-radius: 4px 4px 0px 0;
 }
 
 #conf i {
