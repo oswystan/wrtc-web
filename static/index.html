@@ -2,8 +2,87 @@
     <head>
         <meta charset="utf-8">
         <title>ares webrtc communication</title>
+        <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+          <link href="/thirdparty/iconfont/material-icons.css" rel="stylesheet">
     </head>
     <body>
-        <h1>hello world!</h1>
+        <!--
+        ====================================================================
+        = header
+        ====================================================================
+        -->
+        <div id="header">
+            <i class="material-icons">contact_phone</i>
+            <i class="material-icons">power_settings_new</i>
+        </div>
+
+        <!--
+        ====================================================================
+        = main
+        ====================================================================
+        -->
+        <div id="main" align="center">
+            <table>
+                <tr>
+                    <td rowspan="2">
+                        <div id="conf">
+                            <div id="conf_header"><div style="display: inline-block; padding: 0;">Attenders: </div><i class="material-icons">add</i></div>
+                            <div>Mary</div>
+                            <div>John</div>
+                            <div>Moana</div>
+                            <div>Smith</div>
+                            <div>SuperMan</div>
+                            <div>SpiderMan</div>
+                            <div>IronMan</div>
+                            <div>FlashMan</div>
+                            <div>ArrowMan</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="main_video" align="center">
+                            <video id="local_video" autoplay loop style="height:100%" src="/video/welcome.mp4"></video>
+                            <div id="control_bar">
+                                <i class="material-icons">mic_off</i>
+                                <i class="material-icons">mic</i>
+                                <i class="material-icons">videocam</i>
+                                <i class="material-icons">videocam_off</i>
+                                <i class="material-icons">call_end</i>
+                                <i class="material-icons">all_out</i>
+                                <i class="material-icons">record_voice_over</i>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="thumb">
+                            <div>
+                                <video name="remote_video" autoplay loop muted style="height:100%" src="/video/announcing.mp4"></video>
+                            </div>
+                            <div>
+                                <video name="remote_video" autoplay loop muted style="height:100%" src="/video/chat-demo.mp4"></video>
+                            </div>
+                            <div>
+                                <video name="remote_video" autoplay loop muted style="height:100%" src="/video/pubnub-mouse-speak.mp4"></video>
+                            </div>
+                            <div>
+                                <video name="remote_video" autoplay loop muted style="height:100%" src="/video/tylor.mp4"></video>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--
+        ====================================================================
+        = log
+        ====================================================================
+        -->
+        <div id="log"><i class="material-icons" style="font-size: 1em">keyboard_arrow_right</i>
+        </div>
     </body>
+
+    <script src="js/thirdparty/jquery.js"></script>
+    <script src="js/video.js"></script>
 </html>
