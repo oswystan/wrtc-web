@@ -43,15 +43,15 @@
                     </td>
                     <td>
                         <div id="main_video" align="center">
-                            <video id="local_video" autoplay loop style="height:100%" src="/video/1.mp4"></video>
+                            <video id="video_main" autoplay loop style="height:100%" src="/video/1.mp4"></video>
                             <div id="control_bar">
-                                <i class="material-icons">mic_off</i>
-                                <i class="material-icons">mic</i>
-                                <i class="material-icons">videocam</i>
-                                <i class="material-icons">videocam_off</i>
-                                <i class="material-icons">call_end</i>
-                                <i class="material-icons">all_out</i>
-                                <i class="material-icons">record_voice_over</i>
+                                <i class="material-icons" id="mic_off">mic_off</i>
+                                <i class="material-icons" id="mic_on">mic</i>
+                                <i class="material-icons" id="cam_on">videocam</i>
+                                <i class="material-icons" id="cam_off">videocam_off</i>
+                                <i class="material-icons" id="call_end">call_end</i>
+                                <i class="material-icons" id="full_screen">all_out</i>
+                                <i class="material-icons" id="audio_only">record_voice_over</i>
                             </div>
                         </div>
                     </td>
@@ -135,6 +135,9 @@
     <script src="js/thirdparty/art_template.js"></script>
     <script src="js/emitter.js"></script>
     <script src="js/headquarter.js"></script>
-    <script src="js/video.js"></script>
     <script src="js/log.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/control_bar.js"></script>
+    <script src="js/thumb_video.js"></script>
+
 </html>

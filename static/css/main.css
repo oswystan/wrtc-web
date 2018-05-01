@@ -135,13 +135,13 @@ body {
     padding: 10px 10px;
     cursor: default;
     display: none;
-    font-family: "courier new";
+    font-family: "courier-new";
 }
 #log li:nth-child(even) {
-    background-color: #777;
+    background-color: #bbb;
 }
 .error {
-    color: #800000;
+    color: #b32d00;
 }
 .warn {
     color: #ffff00;
