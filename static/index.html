@@ -26,7 +26,10 @@
                 <tr>
                     <td rowspan="2">
                         <div id="conf">
-                            <div id="conf_header"><div style="display: inline-block; padding: 0;">Attenders: </div><i class="material-icons">add</i></div>
+                            <div id="conf_header">
+                                <div style="display: inline-block; padding: 0;">Attenders: </div>
+                                <i class="material-icons" id="subscribe_new">add</i>
+                            </div>
                             <div>Mary</div>
                             <div>John</div>
                             <div>Moana</div>
@@ -80,6 +83,35 @@
         ====================================================================
         -->
         <div id="log"><i class="material-icons" style="font-size: 1em">keyboard_arrow_right</i>
+        </div>
+
+        <div id="diag_mask"></div>
+        <div id="diag_add_attender">
+            <b>SUBSCRIBE NEW STREAM:</b>
+            <hr>
+            <table>
+                <tr>
+                    <td>APP-ID:</td>
+                    <td><input type="text" name="appid" autofocus="autofocus"></td>
+                </tr>
+                <tr>
+                    <td>CONF-ID:</td>
+                    <td><input type="text" name="confid"></td>
+                </tr>
+                <tr>
+                    <td>USER-ID:</td>
+                    <td><input type="text" name="userid"></td>
+                </tr>
+                <tr>
+                    <td>LIVE-ID:</td>
+                    <td><input type="text" name="liveid"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="subscribe" value="SUBSCRIBE">
+                    </td>
+                </tr>
+            </table>
         </div>
     </body>
 

@@ -33,3 +33,21 @@ $("#log i").click(function(){
         $(this).html("keyboard_arrow_down");
     }
 });
+
+$("#subscribe_new").click(function () {
+    $("#diag_mask").show();
+    $("#diag_add_attender").show();
+    $("#diag_add_attender input[name='appid']").focus();
+});
+
+$("#diag_mask").click(function(){
+    $("#diag_mask").hide();
+    $("#diag_add_attender").hide();
+});
+
+$("#diag_add_attender input[type='submit']").unbind('click').click(function(){
+    $("#diag_mask").hide();
+    $("#diag_add_attender").hide();
+});
+
+
