@@ -60,16 +60,16 @@
                     <td>
                         <div id="thumb">
                             <div>
-                                <video name="remote_video" autoplay loop muted style="height:100%" src="/video/2.mp4"></video>
+                                <video name="remote_video" autoplay loop muted src="/video/2.mp4"></video>
                             </div>
                             <div>
-                                <video name="remote_video" autoplay loop muted style="height:100%" src="/video/3.mp4"></video>
+                                <video name="remote_video" autoplay loop muted src="/video/3.mp4"></video>
                             </div>
                             <div>
-                                <video name="remote_video" autoplay loop muted style="height:100%" src="/video/4.mp4"></video>
+                                <video name="remote_video" autoplay loop muted src="/video/4.mp4"></video>
                             </div>
                             <div>
-                                <video name="remote_video" autoplay loop muted style="height:100%" src="/video/5.mp4"></video>
+                                <video name="remote_video" autoplay loop muted src="/video/5.mp4"></video>
                             </div>
                         </div>
                     </td>
@@ -107,19 +107,19 @@
             <table>
                 <tr>
                     <td>APP-ID:</td>
-                    <td><input type="text" name="appid" autofocus="autofocus"></td>
+                    <td><input type="text" name="appid" autofocus="autofocus">*</td>
                 </tr>
                 <tr>
                     <td>CONF-ID:</td>
-                    <td><input type="text" name="confid"></td>
+                    <td><input type="text" name="confid">*</td>
                 </tr>
                 <tr>
                     <td>USER-ID:</td>
-                    <td><input type="text" name="userid"></td>
+                    <td><input type="text" name="userid">*</td>
                 </tr>
                 <tr>
                     <td>LIVE-ID:</td>
-                    <td><input type="text" name="liveid"></td>
+                    <td><input type="text" name="liveid">*</td>
                 </tr>
                 <tr>
                     <td colspan="2">
@@ -128,6 +128,7 @@
                     </td>
                 </tr>
             </table>
+            <div id="diag_hint"></div>
         </div>
     </body>
 
@@ -136,8 +137,8 @@
     <script src="js/emitter.js"></script>
     <script src="js/headquarter.js"></script>
     <script src="js/log.js"></script>
-    <script src="js/video.js"></script>
     <script src="js/control_bar.js"></script>
     <script src="js/thumb_video.js"></script>
+    <script src="js/diag.js"></script>
 
 </html>

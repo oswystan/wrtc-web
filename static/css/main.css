@@ -117,6 +117,7 @@ body {
 }
 #thumb video {
     cursor: pointer;
+    height: 96%;
 }
 
 #log {
@@ -226,4 +227,10 @@ body {
 #diag_add_attender table tr:last-child td {
     text-align: center;
     padding-right: 8px;
+}
+
+#diag_hint {
+    text-align: left;
+    padding: 10px;
+    color: red;
 }
