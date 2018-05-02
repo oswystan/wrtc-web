@@ -1,5 +1,7 @@
 (function() {
 
+    let hq = headquarter;
+
     let jq_mask          = $("#diag_mask");
     let jq_diag          = $("#diag_add_attender");
     let jq_btn_publish   = $("#diag_add_attender input[name='publish']");
@@ -19,11 +21,19 @@
     function checkValue(idgroup) {
         for(let prop in idgroup) {
             if (idgroup[prop].length == 0) {
-                jq_hint.text("> " + prop + " is empty");
+                hint(prop + " is empty");
                 return false;
             }
         }
         return true;
+    }
+
+    function hint(str) {
+        if (str.length == 0) {
+            jq_hint.text("");
+        } else {
+            jq_hint.text("> " + str);
+        }
     }
 
     function diag_show() {
@@ -38,7 +48,7 @@
     }
     function diag_reset_content() {
         jq_all_text.val("");
-        jq_hint.text("");
+        hint("");
     }
     function diag_get_content() {
         IdGroup.appId  = jq_appid.val().trim();
@@ -52,12 +62,14 @@
             return;
         }
         diag_hide();
+        hq.emit("log:info:add", "start publishing " + IdGroup.liveId);
     }
     function diag_do_subscribe() {
         if (!diag_get_content()) {
             return;
         }
         diag_hide();
+        hq.emit("log:info:add", "start subscribing " + IdGroup.liveId);
     }
     function diag_bind_click() {
         jq_btn_publish.unbind('click').click(diag_do_publish);
