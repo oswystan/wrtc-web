@@ -8,7 +8,6 @@
     let jq_btn_subscribe = $("#diag_add_attender input[name='subscribe']");
     let jq_all_text      = $("#diag_add_attender input[type='text']");
     let jq_text_focused  = $("#diag_add_attender input[autofocus='autofocus']");
-    let jq_icon_new      = $("#subscribe_new");
     let jq_hint          = $("#diag_hint");
 
     let jq_appid         = $("#diag_add_attender input[name='appid']");
@@ -62,6 +61,7 @@
             return;
         }
         diag_hide();
+        hq.emit("conf:attender:add", IdGroup);
         hq.emit("log:info:add", "start publishing " + IdGroup.liveId);
     }
     function diag_do_subscribe() {
@@ -69,14 +69,15 @@
             return;
         }
         diag_hide();
+        hq.emit("conf:attender:add", IdGroup);
         hq.emit("log:info:add", "start subscribing " + IdGroup.liveId);
     }
     function diag_bind_click() {
         jq_btn_publish.unbind('click').click(diag_do_publish);
         jq_btn_subscribe.unbind('click').click(diag_do_subscribe);
-        jq_icon_new.unbind('click').click(diag_show);
         jq_mask.unbind('click').click(diag_hide);
     }
 
     diag_bind_click();
+    hq.on("diag:show", diag_show);
 })();

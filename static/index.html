@@ -26,19 +26,15 @@
                 <tr>
                     <td rowspan="2">
                         <div id="conf">
+                            <script type="text/html" id="template_attenders">
                             <div id="conf_header">
                                 <div style="display: inline-block; padding: 0;">Attenders: </div>
-                                <i class="material-icons" id="subscribe_new">add</i>
+                                <i class="material-icons" id="icon_new_stream">add</i>
                             </div>
-                            <div>Richard.Stallman</div>
-                            <div>Linus.Towards</div>
-                            <div>Hallen.Kaler</div>
-                            <div>Harry.Poter</div>
-                            <div>John.Smith</div>
-                            <div>Jacky.Chen</div>
-                            <div>Jet.Li</div>
-                            <div>Bruce.Li</div>
-                            <div>Jonny.Bruce</div>
+                            {{each attenders as val idx}}
+                            <div>{{val.userId}}-{{val.liveId}}</div>
+                            {{/each}}
+                            </script>
                         </div>
                     </td>
                     <td>
@@ -137,6 +133,7 @@
     <script src="js/emitter.js"></script>
     <script src="js/headquarter.js"></script>
     <script src="js/log.js"></script>
+    <script src="js/conf.js"></script>
     <script src="js/header.js"></script>
     <script src="js/control_bar.js"></script>
     <script src="js/thumb_video.js"></script>
