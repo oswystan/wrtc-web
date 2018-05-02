@@ -15,7 +15,7 @@
     let jq_userid        = $("#diag_add_attender input[name='userid']");
     let jq_liveid        = $("#diag_add_attender input[name='liveid']");
 
-    let IdGroup = {};
+    let idGroup = new IdGroup('', '', '', '');
 
     function checkValue(idgroup) {
         for(let prop in idgroup) {
@@ -50,27 +50,26 @@
         hint("");
     }
     function diag_get_content() {
-        IdGroup.appId  = jq_appid.val().trim();
-        IdGroup.confId = jq_confid.val().trim();
-        IdGroup.userId = jq_userid.val().trim();
-        IdGroup.liveId = jq_liveid.val().trim();
-        return checkValue(IdGroup);
+        let a = jq_appid.val().trim();
+        let b = jq_confid.val().trim();
+        let c = jq_userid.val().trim();
+        let d = jq_liveid.val().trim();
+        idGroup = new IdGroup(a, b, c, d);
+        return checkValue(idGroup);
     }
     function diag_do_publish() {
         if (!diag_get_content()) {
             return;
         }
         diag_hide();
-        hq.emit("conf:attender:add", IdGroup);
-        hq.emit("log:info:add", "start publishing " + IdGroup.liveId);
+        hq.emit("call:publish", idGroup);
     }
     function diag_do_subscribe() {
         if (!diag_get_content()) {
             return;
         }
         diag_hide();
-        hq.emit("conf:attender:add", IdGroup);
-        hq.emit("log:info:add", "start subscribing " + IdGroup.liveId);
+        hq.emit("call:subscribe", idGroup);
     }
     function diag_bind_click() {
         jq_btn_publish.unbind('click').click(diag_do_publish);

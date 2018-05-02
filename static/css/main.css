@@ -114,10 +114,11 @@ body {
 
 #thumb div {
     display: inline-block;
+    height: 96%;
 }
 #thumb video {
     cursor: pointer;
-    height: 96%;
+    height: 100%;
 }
 
 #log {

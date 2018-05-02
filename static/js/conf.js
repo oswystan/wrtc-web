@@ -3,29 +3,13 @@
     let jq_conf = $("#conf");
     let attenders = [];
 
-    function checkIdGroup(a, b) {
-        for (let prop in a) {
-            if (a[prop] !== b[prop]) {
-                return false;
-            }
-        }
-        return true;
-    }
-    function newIdGroup(idgroup) {
-        let val = {};
-        for (let prop in idgroup) {
-            val[prop] = idgroup[prop];
-        }
-        return val;
-    }
-
     function conf_add_attender(idgroup) {
-        attenders.push(newIdGroup(idgroup));
+        attenders.push(idgroup.clone());
         conf_render();
     }
     function conf_del_attender(idgroup) {
         for (let i=0; i<attenders.length; i++) {
-            if (checkIdGroup(attenders[i], idgroup)) {
+            if (idgroup.str() === attenders[i].str()) {
                 attenders.splice(i, 1);
                 break;
             }
@@ -45,8 +29,7 @@
     }
 
     hq.on("conf:attender:add", conf_add_attender);
-    hq.on("conf:attender:del", conf_add_attender);
+    hq.on("conf:attender:del", conf_del_attender);
     hq.on("conf:attender:clear", conf_clear_attender);
-    hq.on("app:exit", conf_clear_attender);
     conf_render();
 })();

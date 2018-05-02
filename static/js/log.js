@@ -53,9 +53,6 @@
         logs = [];
         refresh_log();
     });
-    hq.on("app:exit", function() {
-        hq.emit("log:clear");
-    });
 
     refresh_log();
 })();
