@@ -19,7 +19,7 @@ class IdGroup {
     }
 
     str() {
-        return toString();
+        return this.toString();
     }
 
     static parse(str) {
