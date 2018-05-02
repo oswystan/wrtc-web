@@ -39,7 +39,7 @@
                     </td>
                     <td>
                         <div id="main_video" align="center">
-                            <video id="video_main" autoplay loop style="height:100%" src="/video/1.mp4"></video>
+                            <video id="video_main" autoplay loop style="height:100%" src="/video/1.mp4" _video_data="" local=false></video>
                             <div id="control_bar">
                                 <i class="material-icons" id="mic_off">mic_off</i>
                                 <i class="material-icons" id="mic_on">mic</i>
@@ -55,18 +55,11 @@
                 <tr>
                     <td>
                         <div id="thumb">
+                            <script type="text/html" id="template_thumb_video">
                             <div>
-                                <video name="remote_video" autoplay loop muted src="/video/2.mp4"></video>
+                                <video name="thumb_video" autoplay loop muted src="{{url}}" _video_data="{{video_data}}" local={{local}}></video>
                             </div>
-                            <div>
-                                <video name="remote_video" autoplay loop muted src="/video/3.mp4"></video>
-                            </div>
-                            <div>
-                                <video name="remote_video" autoplay loop muted src="/video/4.mp4"></video>
-                            </div>
-                            <div>
-                                <video name="remote_video" autoplay loop muted src="/video/5.mp4"></video>
-                            </div>
+                            </script>
                         </div>
                     </td>
                 </tr>

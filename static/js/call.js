@@ -35,7 +35,7 @@
         active_streams.push(stream);
         hq.emit("log:info:add", "start subscribing " + idgroup);
         hq.emit("conf:attender:add", idgroup);
-        hq.emit("video:add", idgroup, idgroup.liveId);
+        hq.emit("video:add", idgroup, idgroup.liveId, false);
     }
     function call_publish(idgroup) {
         if (checkStream(idgroup)) {
@@ -46,7 +46,7 @@
         active_streams.push(stream);
         hq.emit("log:info:add", "start publishing " + idgroup);
         hq.emit("conf:attender:add", idgroup);
-        hq.emit("video:add", idgroup, idgroup.liveId);
+        hq.emit("video:add", idgroup, idgroup.liveId, true);
     }
     function call_unsubscribe(idgroup) {
         if (!checkStream(idgroup)) {
