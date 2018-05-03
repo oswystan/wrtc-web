@@ -33,13 +33,10 @@ body {
 
 #main {
     width: 100%;
-}
-
-#main {
     display: inline-block;
     border-style: none;
     border-width: 1px;
-    border-color: #e6e6e6;
+    border-color: #ffffff;
 }
 
 #conf {
@@ -64,7 +61,6 @@ body {
     color: #FFF;
     padding: 16px;
     cursor: auto;
-    border-radius: 4px 4px 0px 0;
 }
 #conf div {
     display: block;
@@ -122,7 +118,7 @@ body {
     width: 800px;
     height: 150px;
     white-space: nowrap;
-    overflow-x: scroll;
+    overflow-x: auto;
     background-color: #ffffff;
 }
 
@@ -151,7 +147,6 @@ body {
     padding: 10px 10px;
     cursor: default;
     display: none;
-    font-family: "courier-new";
 }
 #log li:nth-child(even) {
     background-color: #bbb;
