@@ -35,6 +35,7 @@
         if (!main_stream) {
             main_stream = stream;
             video_reset_main(idgroup.str(), url);
+            hq.emit("conf:attender:active", idgroup);
         } else  {
             thumb_stream.push(stream);
             let html = template("template_thumb_video",
@@ -58,6 +59,7 @@
         if (main_stream && idgroup.str() == main_stream.idgroup.str()) {
             video_reset_main("", "");
             main_stream = null;
+            hq.emit("conf:attender:active", null);
         } else {
             let idx = thumb_stream.findIndex( e => e.idgroup.str() == idgroup.str() );
             if (idx < 0) {
@@ -95,12 +97,14 @@
 
         let old = thumb_stream[idx];
         if (main_stream) {
+            hq.emit("conf:attender:active", old.idgroup);
             thumb_stream[idx] = main_stream;
             main_stream = old;
             video_reset(jq_main, main_stream);
             video_reset(jqobj, thumb_stream[idx]);
         } else {
             main_stream = old;
+            hq.emit("conf:attender:active", old.idgroup);
             video_reset(jq_main, main_stream);
             thumb_stream.splice(idx, 1);
             jqobj.remove();

@@ -32,7 +32,7 @@
                                 <i class="material-icons" id="icon_new_stream">add</i>
                             </div>
                             {{each attenders as val idx}}
-                            <div>{{val.userId}}-{{val.liveId}}</div>
+                            <div name="attender_item" active="{{val.active}}">{{val.idgroup.userId}}-{{val.idgroup.liveId}}</div>
                             {{/each}}
                             </script>
                         </div>
