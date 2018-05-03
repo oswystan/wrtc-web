@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "opmono";
+    src: url("/font/opmono.otf");
+}
+
+
 #header {
     background-color: #666666;
     color: #FFF;
@@ -22,7 +28,7 @@ body {
     background-color: #e8e8e8;
     margin: 0;
     padding: 0;
-    font-family: skia;
+    font-family: opmono;
 }
 
 #main {
@@ -200,7 +206,7 @@ body {
 #diag_add_attender input[type="text"] {
     width: 80%;
     font-size: 1.2em;
-    font-family: skia;
+    font-family: opmono;
     padding: 8px 14px;
     border-style: solid;
     border-width: 1px;
@@ -216,7 +222,7 @@ body {
     border-style: none;
     margin: 10px 0;
     color: #fff;
-    font-family: skia;
+    font-family: opmono;
     cursor: pointer;
     width: 140px;
 }
