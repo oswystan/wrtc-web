@@ -77,15 +77,29 @@
         jq_btn_publish.unbind('click').click(diag_do_publish);
         jq_btn_subscribe.unbind('click').click(diag_do_subscribe);
         jq_mask.unbind('click').click(diag_hide);
-        $(window).keypress(function(e) {
+        $(window).keyup(function(e) {
+            // esc to hide
+            if (e.which == 27) {
+                diag_hide();
+            }
+            //ctrl + . to show
             if(e.ctrlKey) {
-                if (e.which == 14) {
+                if (e.which == 190) {
                     hq.emit("diag:show");
-                } else if (e.which == 12) {
-                    hq.emit("diag:hide");
                 }
             }
         });
+
+        // window.addEventListener("keyup", function(e){
+        // /*
+        // keyCode: 8
+        // keyIdentifier: "U+0008"
+        // */
+        //     console.log(e.keyCode);
+        //     if (e.keyCode == 27) {
+        //         diag_hide();
+        //     }
+        // });
     }
 
     diag_bind_click();
