@@ -16,7 +16,7 @@
         hq.emit("log:warn:add", "mic off");
     });
     bar_call_end.unbind('click').click(function(){
-        hq.emit("log:error:add", "call end");
+        hq.emit("video:main:end");
     });
     bar_cam_on.unbind('click').click(function(){
         hq.emit("log:info:add", "camera on");

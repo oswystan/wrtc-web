@@ -9,29 +9,57 @@
         }
     };
 
-    let stream_list = [];
+    let thumb_stream = [];
+    let main_stream = null;
 
-    function video_add(idgroup, url, is_local) {
-        url = "/video/" + url;
-        stream_list.push(new StreamInfo(idgroup, url));
-        if (stream_list.length == 1) {
+    function video_reset_main(data, url) {
             jq_main.prop("src", url);
-            jq_main.attr("_video_data", idgroup.str());
-            jq_main.attr("local", is_local);
-        } else {
+            jq_main.attr("_video_data", data);
+    }
+
+    function video_add(idgroup, url) {
+        url = "/video/" + url;
+        let stream = new StreamInfo(idgroup, url);
+        if (!main_stream) {
+            main_stream = stream;
+            video_reset_main(idgroup.str(), url);
+        } else  {
+            thumb_stream.push(stream);
             let html = template("template_thumb_video",
-                    {url: url, video_data: idgroup.str(), local: is_local});
+                    {url: url, video_data: idgroup.str()});
             jq_thumb.append(html);
         }
     }
     function video_del(idgroup) {
-        jq_main[0].src = "";
+        if (main_stream && idgroup.str() == main_stream.idgroup.str()) {
+            video_reset_main("", "");
+            main_stream = null;
+        } else {
+            let idx = thumb_stream.findIndex( e => e.idgroup.str() == idgroup.str() );
+            if (idx < 0) {
+                console.error("NO stream found in video: ", idgroup);
+                return;
+            }
+            thumb_stream.splice(idx, 1);
+            let selector = "#thumb video[_video_data='" + idgroup.str() + "']";
+            console.log(selector);
+            $(selector).remove();
+        }
     }
-    function video_del_main() {
-    }
-    function video_switch(main, thumb) {
+    function video_end_main() {
+        if (!main_stream) {
+            return;
+        }
+
+        let idg = IdGroup.parse(jq_main.attr("_video_data"));
+        if (idg) {
+            hq.emit("call:end", idg);
+        } else {
+            console.error("invalid video_data:", jq_main.attr("_video_data"));
+        }
     }
 
     hq.on("video:add", video_add);
     hq.on("video:del", video_del);
+    hq.on("video:main:end", video_end_main);
 })();

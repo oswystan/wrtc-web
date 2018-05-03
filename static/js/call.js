@@ -1,9 +1,8 @@
 (function() {
     let hq = headquarter;
     class VideoStream {
-        constructor(idg, islocal) {
+        constructor(idg) {
             this.idgroup = idg.clone();
-            this.local = islocal;
         }
     }
     let exit = 0;
@@ -31,22 +30,22 @@
             hq.emit("log:error:add", "stream already exist " + idgroup);
             return;
         }
-        let stream = new VideoStream(idgroup, false);
+        let stream = new VideoStream(idgroup);
         active_streams.push(stream);
         hq.emit("log:info:add", "start subscribing " + idgroup);
         hq.emit("conf:attender:add", idgroup);
-        hq.emit("video:add", idgroup, idgroup.liveId, false);
+        hq.emit("video:add", idgroup, idgroup.liveId);
     }
     function call_publish(idgroup) {
         if (checkStream(idgroup)) {
             hq.emit("log:error:add", "stream already exist " + idgroup);
             return;
         }
-        let stream = new VideoStream(idgroup, true);
+        let stream = new VideoStream(idgroup);
         active_streams.push(stream);
         hq.emit("log:info:add", "start publishing " + idgroup);
         hq.emit("conf:attender:add", idgroup);
-        hq.emit("video:add", idgroup, idgroup.liveId, true);
+        hq.emit("video:add", idgroup, idgroup.liveId);
     }
     function call_unsubscribe(idgroup) {
         if (!checkStream(idgroup)) {
@@ -72,6 +71,20 @@
             call_exit();
         }
     }
+    function call_start(idg) {
+        if (idg.type == "local") {
+            call_publish(idg);
+        } else {
+            call_subscribe(idg);
+        }
+    }
+    function call_end(idg) {
+        if (idg.type == "local") {
+            call_unpublish(idg);
+        } else {
+            call_unsubscribe(idg);
+        }
+    }
     function call_exit() {
         if (!exit) {
             hq.emit("log:info:add", "start exiting...");
@@ -81,17 +94,14 @@
             exit = 0;
             return;
         }
-        let stream = active_streams[0];
-        if (stream.local) {
-            hq.emit("call:unpublish", stream.idgroup);
-        } else {
-            hq.emit("call:unsubscribe", stream.idgroup);
-        }
+        hq.emit("call:end", active_streams[0].idgroup);
     }
 
     hq.on("call:subscribe", call_subscribe);
     hq.on("call:publish", call_publish);
     hq.on("call:unsubscribe", call_unsubscribe);
     hq.on("call:unpublish", call_unpublish);
+    hq.on("call:start", call_start);
+    hq.on("call:end", call_end);
     hq.on("app:exit", call_exit);
 })();

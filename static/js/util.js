@@ -1,17 +1,19 @@
 class IdGroup {
-    constructor(appId, confId, userId, liveId) {
-        this.appId = appId;
+    //NOTICE: keep the parameters order the same as property of IdGroup
+    constructor(appId, confId, userId, liveId, type="local") {
+        this.appId  = appId;
         this.confId = confId;
         this.userId = userId;
         this.liveId = liveId;
+        this.type   = type;
     }
 
     clone() {
-        return new IdGroup(this.appId, this.confId, this.userId, this.liveId);
+        return new IdGroup(...Object.values(this));
     }
 
     toString() {
-        return this.appId + ';' + this.confId + ';' + this.userId + ';' + this.liveId;
+        return Object.values(this).reduce((str, val) => str + ';' + val);
     }
 
     label() {
@@ -24,7 +26,7 @@ class IdGroup {
 
     static parse(str) {
         let val = str.split(';');
-        if (val.length != 4) {
+        if (val.length < 5) {
             return null;
         }
         return new IdGroup(...val);

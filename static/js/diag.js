@@ -62,14 +62,16 @@
             return;
         }
         diag_hide();
-        hq.emit("call:publish", idGroup);
+        idGroup.type = "local";
+        hq.emit("call:start", idGroup);
     }
     function diag_do_subscribe() {
         if (!diag_get_content()) {
             return;
         }
         diag_hide();
-        hq.emit("call:subscribe", idGroup);
+        idGroup.type = "remote";
+        hq.emit("call:start", idGroup);
     }
     function diag_bind_click() {
         jq_btn_publish.unbind('click').click(diag_do_publish);
