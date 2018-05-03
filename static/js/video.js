@@ -28,6 +28,13 @@
             let html = template("template_thumb_video",
                     {url: url, video_data: idgroup.str()});
             jq_thumb.append(html);
+            jq_thumb.find("video").contextmenu(function(e){
+                let idg = IdGroup.parse($(e.currentTarget).attr("_video_data"));
+                if (idg) {
+                    hq.emit("call:end", idg);
+                }
+                return false;
+            });
         }
     }
     function video_del(idgroup) {
