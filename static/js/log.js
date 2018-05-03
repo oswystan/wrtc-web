@@ -13,12 +13,12 @@
         }
 
         $("#log i").click(function(){
-            if ($(this).html() == "keyboard_arrow_down") {
-                $(this).html("keyboard_arrow_right");
+            if ($(this).text() == "keyboard_arrow_down") {
+                $(this).text("keyboard_arrow_right");
                 $("#log li").hide();
                 show = false;
             } else {
-                $(this).html("keyboard_arrow_down");
+                $(this).text("keyboard_arrow_down");
                 $("#log li").show();
                 show = true;
             }

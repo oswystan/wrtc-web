@@ -72,13 +72,7 @@
         <div id="log">
             <script type="text/html" id="template_log">
             <div style="display: flex">
-                <i class="material-icons">
-                    {{if show}}
-                        keyboard_arrow_down
-                    {{else}}
-                        keyboard_arrow_right
-                    {{/if}}
-                </i>
+                <i class="material-icons">{{if show}}keyboard_arrow_down{{else}}keyboard_arrow_right{{/if}}</i>
             </div>
                 {{each logs as val idx}}
                 <li class="{{val.type}}">{{val.content}}</li>

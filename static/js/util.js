@@ -13,7 +13,7 @@ class IdGroup {
     }
 
     toString() {
-        return Object.values(this).reduce((str, val) => str + ';' + val);
+        return Object.values(this).reduce((str, val) => str + '@' + val);
     }
 
     label() {
@@ -25,7 +25,7 @@ class IdGroup {
     }
 
     static parse(str) {
-        let val = str.split(';');
+        let val = str.split('@');
         if (val.length < 5) {
             return null;
         }
