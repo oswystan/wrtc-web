@@ -77,8 +77,18 @@
         jq_btn_publish.unbind('click').click(diag_do_publish);
         jq_btn_subscribe.unbind('click').click(diag_do_subscribe);
         jq_mask.unbind('click').click(diag_hide);
+        $(window).keypress(function(e) {
+            if(e.ctrlKey) {
+                if (e.which == 14) {
+                    hq.emit("diag:show");
+                } else if (e.which == 12) {
+                    hq.emit("diag:hide");
+                }
+            }
+        });
     }
 
     diag_bind_click();
     hq.on("diag:show", diag_show);
+    hq.on("diag:hide", diag_hide);
 })();
