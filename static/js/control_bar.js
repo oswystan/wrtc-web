@@ -6,7 +6,7 @@
         cam_on      : "videocam",
         cam_off     : "videocam_off",
         call_end    : "call_end",
-        full_screen : "all_out",
+        full_screen : "fullscreen",
     };
 
     let hq           = headquarter;

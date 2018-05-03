@@ -47,6 +47,7 @@ body {
     border-color: #d9d9d9;
     background-color: #ffffff;
     border-radius: 4px 4px 0px 0;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
 }
 
 #conf i {
@@ -94,6 +95,7 @@ body {
     border-style: solid;
     border-color: #d9d9d9;
     border-width: 1px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
 }
 
 #control_bar {
@@ -120,11 +122,13 @@ body {
     white-space: nowrap;
     overflow-x: auto;
     background-color: #ffffff;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
 }
 
 #thumb div {
     display: inline-block;
     height: 96%;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
 }
 #thumb video {
     cursor: pointer;
@@ -147,6 +151,7 @@ body {
     padding: 10px 10px;
     cursor: default;
     display: none;
+    box-shadow: 1px 0px 1px rgba(0, 0, 0, .2);
 }
 #log li:nth-child(even) {
     background-color: #bbb;
